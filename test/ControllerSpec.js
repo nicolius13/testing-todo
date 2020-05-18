@@ -120,7 +120,7 @@ describe('controller', function () {
   });
 
   it('should set the "clear completed" button', function () {
-    var todo = { id: 42, title: 'my todo', completed: true };
+    var todo = { id: '42cf8r6d-dfs648r8', title: 'my todo', completed: true };
     setUpModel([todo]);
 
     subject.setView('');
@@ -199,21 +199,21 @@ describe('controller', function () {
     });
 
     it('should remove an entry from the view', function () {
-      var todo = { id: 42, title: 'my todo', completed: true };
+      var todo = { id: '42cf8r6d-dfs648r8', title: 'my todo', completed: true };
       setUpModel([todo]);
 
       subject.setView('');
-      view.trigger('itemRemove', { id: 42 });
+      view.trigger('itemRemove', { id: '42cf8r6d-dfs648r8' });
 
-      expect(view.render).toHaveBeenCalledWith('removeItem', 42);
+      expect(view.render).toHaveBeenCalledWith('removeItem', '42cf8r6d-dfs648r8');
     });
 
     it('should update the element count', function () {
-      var todo = { id: 42, title: 'my todo', completed: true };
+      var todo = { id: '42cf8r6d-dfs648r8', title: 'my todo', completed: true };
       setUpModel([todo]);
 
       subject.setView('');
-      view.trigger('itemRemove', { id: 42 });
+      view.trigger('itemRemove', { id: '42cf8r6d-dfs648r8' });
 
       expect(view.render).toHaveBeenCalledWith('updateElementCount', 0);
     });
@@ -221,123 +221,123 @@ describe('controller', function () {
 
   describe('remove completed', function () {
     it('should remove a completed entry from the model', function () {
-      var todo = { id: 42, title: 'my todo', completed: true };
+      var todo = { id: '42cf8r6d-dfs648r8', title: 'my todo', completed: true };
       setUpModel([todo]);
 
       subject.setView('');
       view.trigger('removeCompleted');
 
       expect(model.read).toHaveBeenCalledWith({ completed: true }, jasmine.any(Function));
-      expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
+      expect(model.remove).toHaveBeenCalledWith('42cf8r6d-dfs648r8', jasmine.any(Function));
     });
 
     it('should remove a completed entry from the view', function () {
-      var todo = { id: 42, title: 'my todo', completed: true };
+      var todo = { id: '42cf8r6d-dfs648r8', title: 'my todo', completed: true };
       setUpModel([todo]);
 
       subject.setView('');
       view.trigger('removeCompleted');
 
-      expect(view.render).toHaveBeenCalledWith('removeItem', 42);
+      expect(view.render).toHaveBeenCalledWith('removeItem', '42cf8r6d-dfs648r8');
     });
   });
 
   describe('element complete toggle', function () {
     it('should update the model', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
       subject.setView('');
 
-      view.trigger('itemToggle', { id: 21, completed: true });
+      view.trigger('itemToggle', { id: '21cf8r6d-dfs648r8', completed: true });
 
-      expect(model.update).toHaveBeenCalledWith(21, { completed: true }, jasmine.any(Function));
+      expect(model.update).toHaveBeenCalledWith('21cf8r6d-dfs648r8', { completed: true }, jasmine.any(Function));
     });
 
     it('should update the view', function () {
-      var todo = { id: 42, title: 'my todo', completed: true };
+      var todo = { id: '42cf8r6d-dfs648r8', title: 'my todo', completed: true };
       setUpModel([todo]);
       subject.setView('');
 
-      view.trigger('itemToggle', { id: 42, completed: false });
+      view.trigger('itemToggle', { id: '42cf8r6d-dfs648r8', completed: false });
 
-      expect(view.render).toHaveBeenCalledWith('elementComplete', { id: 42, completed: false });
+      expect(view.render).toHaveBeenCalledWith('elementComplete', { id: '42cf8r6d-dfs648r8', completed: false });
     });
   });
 
   describe('edit item', function () {
     it('should switch to edit mode', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
 
       subject.setView('');
 
-      view.trigger('itemEdit', { id: 21 });
+      view.trigger('itemEdit', { id: '21cf8r6d-dfs648r8' });
 
-      expect(view.render).toHaveBeenCalledWith('editItem', { id: 21, title: 'my todo' });
+      expect(view.render).toHaveBeenCalledWith('editItem', { id: '21cf8r6d-dfs648r8', title: 'my todo' });
     });
 
     it('should leave edit mode on done', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
 
       subject.setView('');
 
-      view.trigger('itemEditDone', { id: 21, title: 'new title' });
+      view.trigger('itemEditDone', { id: '21cf8r6d-dfs648r8', title: 'new title' });
 
-      expect(view.render).toHaveBeenCalledWith('editItemDone', { id: 21, title: 'new title' });
+      expect(view.render).toHaveBeenCalledWith('editItemDone', { id: '21cf8r6d-dfs648r8', title: 'new title' });
     });
 
     it('should persist the changes on done', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
 
       subject.setView('');
 
-      view.trigger('itemEditDone', { id: 21, title: 'new title' });
+      view.trigger('itemEditDone', { id: '21cf8r6d-dfs648r8', title: 'new title' });
 
-      expect(model.update).toHaveBeenCalledWith(21, { title: 'new title' }, jasmine.any(Function));
+      expect(model.update).toHaveBeenCalledWith('21cf8r6d-dfs648r8', { title: 'new title' }, jasmine.any(Function));
     });
 
     it('should remove the element from the model when persisting an empty title', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
 
       subject.setView('');
 
-      view.trigger('itemEditDone', { id: 21, title: '' });
+      view.trigger('itemEditDone', { id: '21cf8r6d-dfs648r8', title: '' });
 
-      expect(model.remove).toHaveBeenCalledWith(21, jasmine.any(Function));
+      expect(model.remove).toHaveBeenCalledWith('21cf8r6d-dfs648r8', jasmine.any(Function));
     });
 
     it('should remove the element from the view when persisting an empty title', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
 
       subject.setView('');
 
-      view.trigger('itemEditDone', { id: 21, title: '' });
+      view.trigger('itemEditDone', { id: '21cf8r6d-dfs648r8', title: '' });
 
-      expect(view.render).toHaveBeenCalledWith('removeItem', 21);
+      expect(view.render).toHaveBeenCalledWith('removeItem', '21cf8r6d-dfs648r8');
     });
 
     it('should leave edit mode on cancel', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
 
       subject.setView('');
 
-      view.trigger('itemEditCancel', { id: 21 });
+      view.trigger('itemEditCancel', { id: '21cf8r6d-dfs648r8' });
 
-      expect(view.render).toHaveBeenCalledWith('editItemDone', { id: 21, title: 'my todo' });
+      expect(view.render).toHaveBeenCalledWith('editItemDone', { id: '21cf8r6d-dfs648r8', title: 'my todo' });
     });
 
     it('should not persist the changes on cancel', function () {
-      var todo = { id: 21, title: 'my todo', completed: false };
+      var todo = { id: '21cf8r6d-dfs648r8', title: 'my todo', completed: false };
       setUpModel([todo]);
 
       subject.setView('');
 
-      view.trigger('itemEditCancel', { id: 21 });
+      view.trigger('itemEditCancel', { id: '21cf8r6d-dfs648r8' });
 
       expect(model.update).not.toHaveBeenCalled();
     });
