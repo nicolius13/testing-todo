@@ -83,13 +83,8 @@
 
     callback = callback || function () {};
 
-    // Generate an ID
-    var newId = '';
-    var charset = '0123456789';
-
-    for (var i = 0; i < 6; i++) {
-      newId += charset.charAt(Math.floor(Math.random() * charset.length));
-    }
+    // Generate an unique ID with uuid
+    var newId = uuidv4();
 
     // If an ID was actually given, find the item and update each property
     if (id) {
@@ -106,7 +101,7 @@
       callback.call(this, todos);
     } else {
       // Assign an ID
-      updateData.id = parseInt(newId);
+      updateData.id = newId;
 
       todos.push(updateData);
       localStorage[this._dbName] = JSON.stringify(data);
