@@ -3,11 +3,11 @@ node_modules/*
 
 # except todomvc-app-css/index.css
 !node_modules/todomvc-app-css
-node_modules/todomvc-app-css/*
-!node_modules/todomvc-app-css/index.css
+# node_modules/todomvc-app-css/*
+# !node_modules/todomvc-app-css/index.css
 
 # except todomvc-common/base.js and todomvc-common/base.css
 !node_modules/todomvc-common
-node_modules/todomvc-common/*
-!node_modules/todomvc-common/base.js
-!node_modules/todomvc-common/base.css
+# node_modules/todomvc-common/*
+# !node_modules/todomvc-common/base.js
+# !node_modules/todomvc-common/base.css
