@@ -75,7 +75,7 @@
    *
    * @param {object} updateData The data to save back into the DB
    * @param {function} callback The callback to fire after saving
-   * @param {number} id An optional param to enter an ID of an item to update
+   * @param {string} id An optional param to enter an ID of an item to update
    */
   Store.prototype.save = function (updateData, callback, id) {
     var data = JSON.parse(localStorage[this._dbName]);
@@ -112,7 +112,7 @@
   /**
    * Will remove an item from the Store based on its ID
    *
-   * @param {number} id The ID of the item you want to remove
+   * @param {string} id The ID of the item you want to remove
    * @param {function} callback The callback to fire after saving
    */
   Store.prototype.remove = function (id, callback) {

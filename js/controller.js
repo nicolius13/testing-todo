@@ -152,7 +152,7 @@
    * By giving it an ID it'll find the DOM element matching that ID,
    * remove it from the DOM and also remove it from storage.
    *
-   * @param {number} id The ID of the item to remove from the DOM and
+   * @param {string} id The ID of the item to remove from the DOM and
    * storage
    */
   Controller.prototype.removeItem = function (id) {
@@ -187,7 +187,7 @@
    * Give it an ID of a model and a checkbox and it will update the item
    * in storage based on the checkbox's state.
    *
-   * @param {number} id The ID of the element to complete or uncomplete
+   * @param {string} id The ID of the element to complete or uncomplete
    * @param {object} checkbox The checkbox to check the state of complete
    *                          or not
    * @param {boolean|undefined} silent Prevent re-filtering the todo items
