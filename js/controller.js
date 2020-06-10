@@ -95,14 +95,12 @@
   Controller.prototype.addItem = function (title) {
     var self = this;
 
-    if (title.trim() === '') {
-      return;
+    if (title.trim() !== '') {
+      self.model.create(title, function () {
+        self.view.render('clearNewTodo');
+        self._filter(true);
+      });
     }
-
-    self.model.create(title, function () {
-      self.view.render('clearNewTodo');
-      self._filter(true);
-    });
   };
 
   /*
@@ -121,15 +119,8 @@
   Controller.prototype.editItemSave = function (id, title) {
     var self = this;
 
-    while (title[0] === ' ') {
-      title = title.slice(1);
-    }
-
-    while (title[title.length - 1] === ' ') {
-      title = title.slice(0, -1);
-    }
-
     if (title.length !== 0) {
+      title = title.trim();
       self.model.update(id, { title: title }, function () {
         self.view.render('editItemDone', { id: id, title: title });
       });
