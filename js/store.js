@@ -83,9 +83,6 @@
 
     callback = callback || function () {};
 
-    // Generate an unique ID with uuid
-    var newId = uuidv4();
-
     // If an ID was actually given, find the item and update each property
     if (id) {
       for (var i = 0; i < todos.length; i++) {
@@ -100,6 +97,8 @@
       localStorage[this._dbName] = JSON.stringify(data);
       callback.call(this, todos);
     } else {
+      // Generate an unique ID with uuid
+      var newId = uuidv4();
       // Assign an ID
       updateData.id = newId;
 
