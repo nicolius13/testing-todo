@@ -188,7 +188,7 @@
    * in storage based on the checkbox's state.
    *
    * @param {string} id The ID of the element to complete or uncomplete
-   * @param {object} checkbox The checkbox to check the state of complete
+   * @param {object} completed The checkbox to check the state of complete
    *                          or not
    * @param {boolean|undefined} silent Prevent re-filtering the todo items
    */
