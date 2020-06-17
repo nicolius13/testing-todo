@@ -93,6 +93,7 @@ describe('controller', function () {
       setUpModel([todo]);
 
       subject.setView('#/active');
+      // function showActive fire and call :
       expect(model.read).toHaveBeenCalledWith({ completed: false }, jasmine.any(Function));
       expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
     });
@@ -103,6 +104,7 @@ describe('controller', function () {
       setUpModel([todo]);
 
       subject.setView('#/completed');
+      // function showCompleted fire and call :
       expect(model.read).toHaveBeenCalledWith({ completed: true }, jasmine.any(Function));
       expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
     });
