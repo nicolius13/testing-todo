@@ -119,8 +119,9 @@
   Controller.prototype.editItemSave = function (id, title) {
     var self = this;
 
+    title = title.trim();
+
     if (title.length !== 0) {
-      title = title.trim();
       self.model.update(id, { title: title }, function () {
         self.view.render('editItemDone', { id: id, title: title });
       });
